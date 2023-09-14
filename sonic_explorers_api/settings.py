@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     "cloudinary_storage",
     "django.contrib.staticfiles",
     "cloudinary",
+    "rest_framework",
     "corsheaders",
+    "profiles",
 ]
 
 SITE_ID = 1
