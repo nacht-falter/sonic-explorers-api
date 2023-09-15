@@ -15,6 +15,7 @@ class ProfileList(generics.ListAPIView):
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """Retrieve, update, or delete a profile. Restricted to the owner"""
+
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]

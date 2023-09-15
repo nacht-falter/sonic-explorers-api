@@ -20,7 +20,6 @@ if os.path.exists("env.py"):
 development = os.environ.get("DEVELOPMENT", "False").lower() == "true"
 
 CLOUDINARY_STORAGE = {"CLOUDINARY_URL": os.environ.get("CLOUDINARY_URL")}
-MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,6 +93,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     "corsheaders",
     "profiles",
+    "sounds",
 ]
 
 SITE_ID = 1
