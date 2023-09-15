@@ -17,6 +17,9 @@ class AudioUploadField(serializers.FileField):
 
     Instructions for uploading audio files to Cloudinary from:
     https://cloudinary.com/documentation/django_image_and_video_upload
+
+    Instructions for using Cloudinary transformations from:
+    https://cloudinary.com/documentation/django_video_manipulation
     """
 
     def to_internal_value(self, data):
@@ -25,6 +28,10 @@ class AudioUploadField(serializers.FileField):
                 data,
                 resource_type="",
                 folder="audio/",
+                format="mp3",
+                transformation=[
+                    {"start_offset": 0, "end_offset": 30},
+                ],
             )
             return uploaded_data["secure_url"]
         except CloudinaryException as e:
