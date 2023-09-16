@@ -25,4 +25,5 @@ urlpatterns = [
     ),
     path("", include("profiles.urls")),
     path("", include("sounds.urls")),
+    path("", include("likes.urls")),
 ]

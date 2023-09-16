@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     "tagulous",
     "profiles",
     "sounds",
+    "likes",
 ]
 
 # tagulous settings:
