@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tagulous.models import TagField
 
 
 class Sound(models.Model):
@@ -8,7 +9,8 @@ class Sound(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    audio_file = models.FileField()
+    audio_file = models.FileField(blank=True)
+    tags = TagField()
     image = models.ImageField(
         upload_to="images/",
         default="../default_sound_image_jlklol",

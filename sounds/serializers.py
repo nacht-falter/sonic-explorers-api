@@ -5,6 +5,7 @@ from rest_framework import serializers
 from .models import Sound
 from cloudinary.uploader import upload
 from cloudinary.exceptions import Error as CloudinaryException
+from tagulous.contrib.drf import TagSerializer
 
 
 class AudioUploadField(serializers.FileField):
@@ -40,8 +41,12 @@ class AudioUploadField(serializers.FileField):
             )
 
 
-class SoundSerializer(serializers.ModelSerializer):
-    """Serializer for Sound model."""
+class SoundSerializer(TagSerializer, serializers.ModelSerializer):
+    """Serializer for Sound model.
+
+    Instructions for django-tagulous TagSerializer from:
+    https://django-tagulous.readthedocs.io/en/latest/usage.html#django-rest-framework
+    """
 
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
@@ -76,6 +81,7 @@ class SoundSerializer(serializers.ModelSerializer):
             "title",
             "description",
             "audio_file",
+            "tags",
             "image",
             "latitude",
             "longitude",
@@ -88,6 +94,17 @@ class SoundSerializer(serializers.ModelSerializer):
 
 
 class SoundDetailSerializer(SoundSerializer):
-    """Serializer for Sound update view. Makes audio_file field optional."""
+    """Serializer for Sound update view. Makes required fields optional
+    for PUT requests."""
 
     audio_file = AudioUploadField(required=False)
+    latitude = serializers.FloatField(required=False)
+    longitude = serializers.FloatField(required=False)
+
+
+class TagSerializer(serializers.ModelSerializer):
+    """Serializer for Tag model."""
+
+    class Meta:
+        model = Sound.tags.tag_model
+        fields = ["name", "sound_set"]
