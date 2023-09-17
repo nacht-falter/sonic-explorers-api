@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     "sounds",
     "likes",
     "comments",
+    "follows",
 ]
 
 # tagulous settings:
