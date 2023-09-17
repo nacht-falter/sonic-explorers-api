@@ -14,7 +14,7 @@ class CurrentUserSerializerTestCase(APITestCase):
 
         # Print test id
         # https://docs.python.org/3/library/unittest.html#unittest.TestCase.id
-        print(str(self.id()))
+        print(f"\n{self.id()}")
 
     def test_current_user_serializer(self):
         serializer = CurrentUserSerializer(self.user)

@@ -29,7 +29,7 @@ class SoundListViewTests(APITestCase):
             "longitude": 0.0,
         }
 
-        print(str(f"\n{self.id()}"))
+        print(f"\n{self.id()}")
 
     def test_user_can_list_sounds(self):
         Sound.objects.create(
