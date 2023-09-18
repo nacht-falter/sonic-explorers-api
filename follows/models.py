@@ -9,17 +9,17 @@ class Follow(models.Model):
     """
 
     owner = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="follower"
+        User, on_delete=models.CASCADE, related_name="following"
     )
     followed = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="followed"
+        User, on_delete=models.CASCADE, related_name="followers"
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-created_at"]
         # Instructions for using UniqueConstraint and CheckConstraint from:
-        # https://adamj.eu/tech/2021/02/26/django-check-constraints-prevent-self-following/ 
+        # https://adamj.eu/tech/2021/02/26/django-check-constraints-prevent-self-following/
         constraints = [
             models.UniqueConstraint(
                 name="%(app_label)s_%(class)s_unique_relationships",
@@ -30,7 +30,6 @@ class Follow(models.Model):
                 check=~models.Q(owner=models.F("followed")),
             ),
         ]
-
 
     def __str__(self):
         return f"{self.owner} follows {self.followed}"
