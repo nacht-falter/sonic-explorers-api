@@ -4,6 +4,10 @@ from sounds.models import Sound
 
 
 class Comment(models.Model):
+    """Model representing a comment. Related to Users and Sounds.
+    The string method contains a truncated version of the content.
+    """
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     sound = models.ForeignKey(Sound, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

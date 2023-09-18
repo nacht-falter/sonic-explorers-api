@@ -6,6 +6,11 @@ from .models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    """Serializer for Comment model. Includes methods for formatting
+    created_at and updated_at fields for better readability and for
+    checking if the user is the owner of the comment.
+    """
+
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
