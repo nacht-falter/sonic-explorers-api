@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    """Profile model with one-to-one relationship to Users.
+    Profiles are automatically created when a user is created.
+    """
+
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
