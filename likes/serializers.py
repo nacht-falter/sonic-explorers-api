@@ -4,7 +4,9 @@ from .models import Like
 
 
 class LikeSerializer(serializers.ModelSerializer):
-    """Serializer for Like model."""
+    """Serializer for Like model. Includes method for checking if the user
+    has already liked the sound.
+    """
 
     owner = serializers.ReadOnlyField(source="owner.username")
 

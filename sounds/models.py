@@ -4,7 +4,7 @@ from tagulous.models import TagField
 
 
 class Sound(models.Model):
-    """Sound model. Includes method for audio processing and geolocation."""
+    """Sound model. Includes geolocation data."""
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
