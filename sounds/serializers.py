@@ -3,6 +3,7 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 from datetime import timedelta
 from rest_framework import serializers
 from .models import Sound
+from likes.models import Like
 from cloudinary.uploader import upload
 from cloudinary.exceptions import Error as CloudinaryException
 from tagulous.contrib.drf import TagSerializer
@@ -36,13 +37,14 @@ class AudioUploadField(serializers.FileField):
             )
             return uploaded_data["secure_url"]
         except CloudinaryException as e:
-            raise serializers.ValidationError(
-                {"detail": e}
-            )
+            raise serializers.ValidationError({"detail": e})
 
 
 class SoundSerializer(TagSerializer, serializers.ModelSerializer):
-    """Serializer for Sound model.
+    """Serializer for Sound model. Includes methods for formatting dates
+    and for returning if the user is the owner of the sound.
+    Also includes custom field for uploading audio files to Cloudinary as
+    well as fields for counting likes and comments.
 
     Instructions for django-tagulous TagSerializer from:
     https://django-tagulous.readthedocs.io/en/latest/usage.html#django-rest-framework
@@ -57,6 +59,9 @@ class SoundSerializer(TagSerializer, serializers.ModelSerializer):
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
     audio_file = AudioUploadField()
+    like_id = serializers.SerializerMethodField()
+    likes_count = serializers.IntegerField(read_only=True)
+    comments_count = serializers.IntegerField(read_only=True)
 
     def get_is_owner(self, obj):
         return obj.owner == self.context["request"].user
@@ -72,6 +77,13 @@ class SoundSerializer(TagSerializer, serializers.ModelSerializer):
             return naturaltime(obj.updated_at)
         else:
             return obj.updated_at.strftime("%d %b %Y, %I:%M %p")
+
+    def get_like_id(self, obj):
+        user = self.context["request"].user
+        if user.is_authenticated:
+            like = Like.objects.filter(owner=user, sound=obj).first()
+            return like.id if like else None
+        return None
 
     class Meta:
         model = Sound
@@ -90,6 +102,9 @@ class SoundSerializer(TagSerializer, serializers.ModelSerializer):
             "is_owner",
             "created_at",
             "updated_at",
+            "like_id",
+            "likes_count",
+            "comments_count",
         ]
 
 

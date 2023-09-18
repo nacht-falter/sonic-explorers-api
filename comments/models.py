@@ -9,7 +9,9 @@ class Comment(models.Model):
     """
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    sound = models.ForeignKey(Sound, on_delete=models.CASCADE)
+    sound = models.ForeignKey(
+        Sound, on_delete=models.CASCADE, related_name="comments"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField()
