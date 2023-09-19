@@ -6,6 +6,7 @@ from likes.models import Like
 from comments.models import Comment
 from follows.models import Follow
 from sounds.models import Sound
+from reports.models import Report
 
 
 def create_notification(**kwargs):
@@ -73,7 +74,6 @@ def create_new_sound_notification(sender, instance, created, **kwargs):
     if created:
         recipients = User.objects.filter(following__followed=instance.owner)
         for recipient in recipients:
-            print("recipient:", recipient)
             data = {
                 "owner": recipient,
                 "sender": instance.owner,
@@ -81,6 +81,25 @@ def create_new_sound_notification(sender, instance, created, **kwargs):
                 "item_id": instance.id,
                 "title": "You have a new sound!",
                 "content": f"{instance.owner.username} uploaded a new sound.",
+            }
+
+            create_notification(**data)
+
+
+@receiver(post_save, sender=Report)
+def create_report_notification(sender, instance, created, **kwargs):
+    if created:
+        recipients = User.objects.filter(is_staff=True)
+        sound = instance.sound
+        for recipient in recipients:
+            data = {
+                "owner": recipient,
+                "sender": instance.owner,
+                "category": "report",
+                "item_id": sound.id,
+                "title": f"New report for sound '{sound.title}'",
+                "content": f"{instance.owner} flagged {sound.owner}'s sound "
+                f"'{sound.title}' as '{instance.get_flag_display()}'.",
             }
 
             create_notification(**data)

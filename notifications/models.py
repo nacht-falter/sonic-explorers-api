@@ -1,13 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-CATEGORIES = [
-    ("follow", "Follow"),
-    ("comment", "Comment"),
-    ("like", "Like"),
-    ("new_sound", "New Sound"),
-]
-
 
 class Notification(models.Model):
     """Notification model representing a notification automatically sent to a
@@ -15,6 +8,13 @@ class Notification(models.Model):
     and follows are created.
     """
 
+    CATEGORIES = [
+        ("follow", "Follow"),
+        ("comment", "Comment"),
+        ("like", "Like"),
+        ("new_sound", "New Sound"),
+        ("report", "Report"),
+    ]
     owner = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="notifications"
     )
