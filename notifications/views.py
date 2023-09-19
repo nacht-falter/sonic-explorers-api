@@ -19,7 +19,7 @@ class NotificationList(generics.ListAPIView):
         serializer.save(owner=self.request.user)
 
 
-class NotificationDetail(generics.RetrieveDestroyAPIView):
+class NotificationDetail(generics.RetrieveUpdateDestroyAPIView):
     """Retrieve or delete a notification by id.
     Restricted to notification owner.
     """
