@@ -1,7 +1,5 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.db import transaction
-from django.db.utils import IntegrityError
 from rest_framework.test import APITestCase, APIClient
 from rest_framework import status
 from .models import Comment
