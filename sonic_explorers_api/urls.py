@@ -29,4 +29,5 @@ urlpatterns = [
     path("", include("comments.urls")),
     path("", include("follows.urls")),
     path("", include("notifications.urls")),
+    path("", include("reports.urls")),
 ]

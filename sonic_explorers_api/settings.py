@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     "comments",
     "follows",
     "notifications",
+    "reports",
 ]
 
 # tagulous settings:

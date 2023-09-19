@@ -21,3 +21,17 @@ class IsNotificationOwner(permissions.BasePermission):
         raise PermissionDenied(
             "403 Permission denied"
         )
+
+
+class IsAdminOrCreateOnly(permissions.BasePermission):
+    """Custom permission to restrict read access to admin users, while
+    allowing create access to all users.
+
+    Instructions for has_permission method from DRF docs:
+    https://www.django-rest-framework.org/api-guide/permissions/#custom-permissions
+    """
+
+    def has_permission(self, request, view):
+        if request.method == "POST":
+            return True
+        return request.user.is_staff
