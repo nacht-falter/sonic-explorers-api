@@ -36,7 +36,7 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
-    "DATETIME_FORMAT": "%d %b %Y, I:%M %p",
+    "DATETIME_FORMAT": "%d %b %Y, %I:%M %p",
 }
 if not development:
     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
