@@ -48,3 +48,12 @@ class CommentSerializer(serializers.ModelSerializer):
             "updated_at",
             "content",
         ]
+
+
+class CommentDetailSerializer(CommentSerializer):
+    """
+    Serializer for CommentDetail view. Sets sound field to read only
+    for updating comments.
+    """
+
+    sound = serializers.ReadOnlyField(source="sound.id")

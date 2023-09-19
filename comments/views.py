@@ -3,7 +3,7 @@ from django_filters import rest_framework as drf_filters
 from sonic_explorers_api.permissions import IsOwnerOrReadOnly
 from .models import Comment
 from sounds.models import Sound
-from .serializers import CommentSerializer
+from .serializers import CommentSerializer, CommentDetailSerializer
 
 
 class CommentFilter(drf_filters.FilterSet):
@@ -48,5 +48,5 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     """Retrieve a comment. Update or delete comments if user is owner."""
 
     queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+    serializer_class = CommentDetailSerializer
     permission_classes = [IsOwnerOrReadOnly]
