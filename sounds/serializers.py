@@ -62,6 +62,7 @@ class SoundSerializer(TagSerializer, serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.IntegerField(read_only=True)
     comments_count = serializers.IntegerField(read_only=True)
+    tags_count = serializers.IntegerField(read_only=True)
 
     def get_is_owner(self, obj):
         return obj.owner == self.context["request"].user
@@ -105,6 +106,7 @@ class SoundSerializer(TagSerializer, serializers.ModelSerializer):
             "like_id",
             "likes_count",
             "comments_count",
+            "tags_count",
         ]
 
 
