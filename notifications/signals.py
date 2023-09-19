@@ -34,7 +34,7 @@ def create_like_notification(sender, instance, created, **kwargs):
             f"{instance.sound.title}",
         }
 
-    create_notification(**data)
+        create_notification(**data)
 
 
 @receiver(post_save, sender=Comment)
@@ -50,7 +50,7 @@ def create_comment_notification(sender, instance, created, **kwargs):
             f"{instance.sound.title}",
         }
 
-    create_notification(**data)
+        create_notification(**data)
 
 
 @receiver(post_save, sender=Follow)
@@ -65,7 +65,7 @@ def create_follow_notification(sender, instance, created, **kwargs):
             "content": f"{instance.owner.username} is now following you.",
         }
 
-    create_notification(**data)
+        create_notification(**data)
 
 
 @receiver(post_save, sender=Sound)
