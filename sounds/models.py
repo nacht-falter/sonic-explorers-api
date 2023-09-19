@@ -10,7 +10,7 @@ class Sound(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     audio_file = models.FileField(blank=True)
-    tags = TagField()
+    tags = TagField(force_lowercase=True, max_count=15)
     image = models.ImageField(
         upload_to="images/",
         default="../default_sound_image_jlklol",
