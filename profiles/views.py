@@ -56,7 +56,7 @@ class ProfileList(generics.ListAPIView):
     ]
 
 
-class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+class ProfileDetail(generics.RetrieveUpdateAPIView):
     """Retrieve, update, or delete a profile. Restricted to the owner"""
 
     queryset = Profile.objects.all()
