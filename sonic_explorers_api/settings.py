@@ -53,6 +53,9 @@ REST_AUTH_SERIALIZERS = {
     "USER_DETAILS_SERIALIZER": "sonic_explorers_api.serializers.CurrentUserSerializer"
 }
 
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
