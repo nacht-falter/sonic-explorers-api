@@ -15,19 +15,19 @@ class ReportFilter(drf_filters.FilterSet):
     https://django-filter.readthedocs.io/en/main/guide/rest_framework.html
     """
 
-    reports_by_sound = drf_filters.ModelChoiceFilter(
+    sound = drf_filters.ModelChoiceFilter(
         queryset=Sound.objects.all(),
         field_name="sound",
         label="Show reports for sound:",
     )
 
-    reports_by_user = drf_filters.ModelChoiceFilter(
+    user = drf_filters.ModelChoiceFilter(
         queryset=User.objects.all(),
         field_name="owner",
         label="Show reports by user:",
     )
 
-    reports_by_flag = drf_filters.ChoiceFilter(
+    flag = drf_filters.ChoiceFilter(
         choices=Report.FLAG_CHOICES,
         field_name="flag",
         label="Show reports by flag:",
@@ -36,9 +36,9 @@ class ReportFilter(drf_filters.FilterSet):
     class Meta:
         model = Report
         fields = [
-            "reports_by_sound",
-            "reports_by_user",
-            "reports_by_flag",
+            "sound",
+            "user",
+            "flag",
         ]
 
 
