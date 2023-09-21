@@ -16,25 +16,25 @@ class SoundFilter(drf_filters.FilterSet):
     https://django-filter.readthedocs.io/en/main/guide/rest_framework.html
     """
 
-    sounds_by_following = drf_filters.ModelChoiceFilter(
+    following = drf_filters.ModelChoiceFilter(
         queryset=Profile.objects.all(),
         field_name="owner__followed_by__owner__profile",
         label="Show sounds from profiles followed by:",
     )
 
-    sounds_by_liked = drf_filters.ModelChoiceFilter(
+    liked = drf_filters.ModelChoiceFilter(
         queryset=Profile.objects.all(),
         field_name="likes__owner__profile",
         label="Show sounds liked by:",
     )
 
-    sounds_by_user = drf_filters.ModelChoiceFilter(
+    user = drf_filters.ModelChoiceFilter(
         queryset=Profile.objects.all(),
         field_name="owner__profile",
         label="Show sounds owned by:",
     )
 
-    sounds_by_tag = drf_filters.ModelChoiceFilter(
+    tag = drf_filters.ModelChoiceFilter(
         queryset=Sound.tags.tag_model.objects.all(),
         field_name="tags__name",
         label="Show sounds with tag:",
@@ -43,10 +43,10 @@ class SoundFilter(drf_filters.FilterSet):
     class Meta:
         model = Sound
         fields = [
-            "sounds_by_following",
-            "sounds_by_liked",
-            "sounds_by_user",
-            "sounds_by_tag",
+            "following",
+            "liked",
+            "user",
+            "tag",
         ]
 
 
