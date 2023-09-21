@@ -8,7 +8,7 @@ urlpatterns = [
         name="notifications",
     ),
     path(
-        "notifications/<int:pk>/",
+        "notifications/<int:pk>",
         views.NotificationDetail.as_view(),
         name="notification_detail",
     ),
