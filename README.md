@@ -270,29 +270,91 @@ The API is built with [Django Rest Framework](https://www.django-rest-framework.
 The project was deployed to [Heroku](https://heroku.com). A live version of the API can be found at https://sonic-explorers-api-4c187c4cd99f.herokuapp.com/.
 
 The necessary steps to deploy the project are:
-- Clone or fork the repository.
-- Create an account at https://cloudinary.com and get your Cloudinary URL from the dashboard.
-- Create a PostgreSQL database, for example at https://www.elephantsql.com/, and find the database address.
-- Start a new app from the [Heroku dashboard](https://dashboard.heroku.com).
-- Go to the Settings tab and click on `Reveal Config Vars` in the *Config Vars* section.
-- Now add the following config vars:
-  | Name | Value | 
-  |---|---|
-  | ALLOWED_HOSTS | \<your deployed heroku API app url\> * |
-  | CLIENT_ORIGIN_DEV | \<your development environment url\> ** |
-  | CLIENT_ORIGIN | \<your client url\> |
-  | CLOUDINARY_URL | \<Your cloudinary url\> | 
-  | DATABASE_URL | \<Your database url\> | 
-  | DEVELOPMENT | FALSE | 
-  | DISABLE_COLLECTSTATIC | 1 |
-  | SECRET_KEY | \<some random string\> |
+1. Clone or fork the repository. For forking it, go to https://github.com/nacht-falter/sonic-explorers-api/, click on `Fork` and follow the instructions. For cloning the repository run `git clone https://github.com/nacht-falter/sonic-explorers-api.git` in your terminal.
 
-  \* Add after first deployment. Do not include 'https://' or a final '/' in the url!
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/1-clone-or-fork-repo.png">
+    </details>
 
-  \*\* E.g. "http://localhost:3000" for building a React front end app in a local environment.
+2. Create an account at https://cloudinary.com and get your Cloudinary URL from the dashboard by clicking on the URL under `API Environment variable`.
 
-- Click on the *Deploy* tab and connect the Heroku app to your GitHub repository.
-- Choose the branch you want to deploy in the *Manual deploy* section and click on `Deploy Branch`.
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/2-get-cloudinary-url.png">
+    </details>
+
+3. Create a PostgreSQL database, for example at https://www.elephantsql.com/. Create an account and after login in, click on `Create new instance` and follow the instructions. Click on your newly created database and get the URL from the database details.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/3-get-database-url.png">
+    </details>
+
+4. Create an account at https://heroku.com and login. Then, start a new app from the [Heroku dashboard](https://dashboard.heroku.com) by clicking on `New` and then on `Create new app`.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/4-create-heroku-app.png">
+    </details>
+
+5. Give your app an available name and choose your region (US or Europe).
+
+6. After creating your app, go to the *Settings* tab and click on `Reveal Config Vars` in the *Config Vars* section.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/5-reveal-config-vars.png">
+    </details>
+
+7. Now, one by one, add the following config vars:
+
+    | Name | Value | 
+    |---|---|
+    | ALLOWED_HOSTS | \<your deployed heroku API app url\> * |
+    | CLIENT_ORIGIN_DEV | \<your development environment url\> ** |
+    | CLIENT_ORIGIN | \<your client url\> |
+    | CLOUDINARY_URL | \<Your cloudinary url\> | 
+    | DATABASE_URL | \<Your database url\> | 
+    | DISABLE_COLLECTSTATIC | 1 |
+    | SECRET_KEY | \<some random string\> |
+
+    \* Paste the URL without 'https://' or a trailing slash!
+
+    \*\* E.g. "http://localhost:3000" for building a React front end app in a local environment. This may differ for your IDE.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/6-add-config-vars.png">
+    </details>
+
+8. Click on the *Deploy* tab and connect the Heroku app to your GitHub repository.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/7-connect-to-repo.png">
+    </details>
+
+9. Scroll down and choose the branch you want to deploy in the *Manual deploy* section. Now click on `Deploy Branch` for the first deployment of the application.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/8-first-deployment.png">
+    </details>
+
+10. After deployment click on `View` to open your deployed app.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/9-open-app.png">
+    </details>
+
+11. In case you run into any issues you can access logs by clicking on `More` and then `View logs` or you can check the *Activity* tab for debugging.
+
+    <details>
+    <summary>Show image</summary>
+    <img src="https://raw.githubusercontent.com/nacht-falter/sonic-explorers-api/main/docs/deployment/10-debugging.png">
+    </details>
 
 ## Credits
 
