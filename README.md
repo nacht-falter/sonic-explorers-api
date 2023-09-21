@@ -143,23 +143,23 @@ The Sonic Explorers API provides the following endpoints:
 
 - I used [Issues](https://github.com/nacht-falter/sonic-explorers-api/issues?q=is%3Aissue+is%3Aclosed) to define user stories. 
 
-- I assigned labels to user stories to categorize them into [Themes](https://github.com/nacht-falter/sonic-explorers-api/labels?q=THEME) and [Epics](https://github.com/nacht-falter/sonic-explorers-api/labels?q=EPIC)
+- I categorized all user stories by **[Themes](https://github.com/nacht-falter/sonic-explorers-api/labels?q=THEME)** and **[Epics](https://github.com/nacht-falter/sonic-explorers-api/labels?q=EPIC)** and used labels to mark user stories accordingly.
 
 - All user stories were prioritized using the MoSCoW prioritization technique with the following project-wide priorities:
 
   https://github.com/nacht-falter/sonic-explorers-api/labels/PRIORITY%3A%20Must-Have https://github.com/nacht-falter/sonic-explorers-api/labels/PRIORITY%3A%20Should-Have https://github.com/nacht-falter/sonic-explorers-api/labels/PRIORITY%3A%20Could-Have https://github.com/nacht-falter/sonic-explorers-api/labels/PRIORITY%3A%20Won%27t-Have
 
-- I used Milestones for the [Product Backlog](https://github.com/nacht-falter/sonic-explorers-api/milestone/1) and for adding user stories to [Sprints](https://github.com/nacht-falter/sonic-explorers-api/milestones?state=closed).
+- I used **Milestones** for the [Product Backlog](https://github.com/nacht-falter/sonic-explorers-api/milestone/1) and for adding user stories to [Sprints](https://github.com/nacht-falter/sonic-explorers-api/milestones?state=closed).
 
-- [Projects](https://github.com/nacht-falter/sonic-explorers-api/projects?query=is%3Aclosed) were used for tracking tasks within each iteration.
+- [Projects](https://github.com/nacht-falter/sonic-explorers-api/projects?query=is%3Aclosed) were used for tracking user stories within each iteration.
 
 - [Project workflows](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically) were used to automatically add user stories in a sprint to the To-do column of the corresponding project board.
 
-- For sprint-wide prioritization, a [custom priority field](https://docs.github.com/en/issues/planning-and-tracking-with-projects/understanding-fields) was used.
+- For sprint-wide prioritization, a [custom priority field](https://docs.github.com/en/issues/planning-and-tracking-with-projects/understanding-fields) was created.
 
 ### Sprint Planning
 
-The development process was planned with three timeboxed sprints of three days each. User stories were assigned to sprints with the MVP in mind, but at the same time making sure, not to assign more than 60% Must-Have user stories to a sprint. 
+The development process for the API project was planned with three timeboxed sprints of three days each. User stories were assigned to sprints with the MVP in mind, but at the same time making sure, not to assign more than 60% Must-Have user stories to a sprint. 
 
 #### Sprint 1 (Sept. 13 to 15 2023)
 
