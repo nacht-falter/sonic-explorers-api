@@ -124,4 +124,4 @@ class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sound.tags.tag_model
-        fields = ["name", "sound_set"]
+        fields = ["id", "name", "sound_set"]
