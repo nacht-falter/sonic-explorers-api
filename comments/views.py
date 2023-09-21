@@ -16,7 +16,7 @@ class CommentFilter(drf_filters.FilterSet):
 
     queryset = Sound.objects.all()
 
-    comments_by_sound = drf_filters.ModelChoiceFilter(
+    sound = drf_filters.ModelChoiceFilter(
         queryset=queryset,
         field_name="sound",
         label="Show comments for sound:",
@@ -24,7 +24,7 @@ class CommentFilter(drf_filters.FilterSet):
 
     class Meta:
         model = Comment
-        fields = ["comments_by_sound"]
+        fields = ["sound"]
 
 
 class CommentList(generics.ListCreateAPIView):
