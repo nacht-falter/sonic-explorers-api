@@ -17,7 +17,25 @@ The deployed API can be found here: [Sonic Explorers API](https://sonic-explorer
 
 ## Table of Contents
 
-...
+- [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Future Feature Ideas](#future-feature-ideas)
+- [Design Process](#design-process)
+    - [User Stories](#user-stories)
+    - [Data Models](#data-models)
+- [API Endpoints](#api-endpoints)
+- [Agile Methodology](#agile-methodology)
+    - [GitHub Issues and Projects as Agile Tools](#github-issues-and-projects-as-agile-tools)
+    - [Sprint Planning](#sprint-planning)
+- [Technologies Used](#technologies-used)
+    - [Frameworks and Languages](#frameworks-and-languages)
+    - [Additional Python Packages](#additional-python-packages)
+    - [Other Software](#other-software)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    - [Sources](#sources)
+    - [Acknowledgements](#acknowledgements)
 
 ## Features
 
@@ -134,6 +152,7 @@ The Sonic Explorers API provides the following endpoints:
 | /notifications/\<int:pk\> | GET | Read | Detail | Owner |  |
 |  | DELETE | Delete | Detail | Owner |  |
 
+Detailed information for all endpoints with example request data and example responses can be found in the [API documentation generated with Postman](https://documenter.getpostman.com/view/29756179/2s9YCBsopC).
 
 ## Agile Methodology
 
@@ -257,7 +276,7 @@ The API is built with [Django Rest Framework](https://www.django-rest-framework.
 - [ElephantSQL](https://www.elephantsql.com/) is used for the project's PostgreSQL database.
 - [Cloudinary](https://cloudinary.com/) is used to store media files and for processing uploaded audio files.
 - [Lucidchart](https://www.lucidchart.com/) was used to create the [entity relationship diagram (ERD)](#data-models).
-- [Postman](https://www.postman.com/) has been used for testing all API endpoints.
+- [Postman](https://www.postman.com/) has been used for testing all API endpoints and for generating [API endpoint documentation](https://documenter.getpostman.com/view/29756179/2s9YCBsopC).
 - [Neovim](https://neovim.io/) was used for writing code.
 - https://derlin.github.io/bitdowntoc/ has been used to create the [table of contents](#table-of-contents) in this README.
 
@@ -357,6 +376,8 @@ The necessary steps to deploy the project are:
     </details>
 
 ## Credits
+
+### Sources
 
 The initial setup and the general structure of the project are based on the instructions from the Code Institute *Django Rest Framework* walkthrough project ([source code](https://github.com/Code-Institute-Solutions/drf-api/)). The basic structure of the Profile, Like, Comment, and Follow models (and their serializers), as well as the filtering functionality has been adopted from the walkthrough project and adjusted to fit the specific circumstances of the project.
 
