@@ -1,6 +1,6 @@
 # Sonic Explorers API User Stories
 
-[Go back to README.md](../README.md)
+[Go back to TESTING.md](../README.md)
 
 All user stories are categorized into four themes:
 - [User Authentication and Profile Management](https://github.com/nacht-falter/sonic-explorers-api/issues?q=label%3A%22THEME%3A+User+Authentication+and+Profile+Management%22+is%3Aclosed)
