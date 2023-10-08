@@ -34,4 +34,5 @@ class ReportSerializer(serializers.ModelSerializer):
             "created_at",
             "flag",
             "content",
+            "review_status",
         ]

@@ -27,6 +27,11 @@ class Report(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     flag = models.CharField(choices=FLAG_CHOICES, max_length=50)
     content = models.TextField()
+    review_status = models.CharField(
+        choices=[("open", "Open"), ("closed", "Closed")],
+        max_length=50,
+        default="open",
+    )
 
     class Meta:
         ordering = ["-created_at"]
