@@ -59,6 +59,10 @@ class ProfileList(generics.ListAPIView):
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """Retrieve, update, or delete a profile. Restricted to the owner"""
 
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.annotate(
+        sounds_count=Count("owner__sound", distinct=True),
+        followers_count=Count("owner__followed_by", distinct=True),
+        following_count=Count("owner__following", distinct=True),
+    ).order_by("-created_at")
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
