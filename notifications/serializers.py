@@ -15,7 +15,7 @@ class NotificationSerializer(serializers.ModelSerializer):
     sender_avatar = serializers.ReadOnlyField(
         source="sender.profile.avatar.url"
     )
-    item_id = serializers.ReadOnlyField(source="item.id")
+    item_id = serializers.ReadOnlyField()
     sent_at = serializers.SerializerMethodField()
 
     def get_sent_at(self, obj):
