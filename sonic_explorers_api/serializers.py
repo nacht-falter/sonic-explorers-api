@@ -10,9 +10,11 @@ class CurrentUserSerializer(UserDetailsSerializer):
 
     profile_id = serializers.ReadOnlyField(source="profile.id")
     profile_avatar = serializers.ReadOnlyField(source="profile.avatar.url")
+    is_staff = serializers.ReadOnlyField()
 
     class Meta(UserDetailsSerializer.Meta):
         fields = UserDetailsSerializer.Meta.fields + (
             "profile_id",
             "profile_avatar",
+            "is_staff",
         )
