@@ -54,8 +54,8 @@ class ReportList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class ReportDetail(generics.RetrieveDestroyAPIView):
-    """Retrieve a report. Delete reports if user is admin."""
+class ReportDetail(generics.RetrieveUpdateDestroyAPIView):
+    """Retrieve, update, and delete reports if user is admin."""
 
     queryset = Report.objects.all()
     serializer_class = ReportSerializer
