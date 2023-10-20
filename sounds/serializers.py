@@ -86,6 +86,19 @@ class SoundSerializer(TagSerializer, serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def validate_image(self, value):
+        if value.size > 1024 * 1024 * 2:
+            raise serializers.ValidationError("Image can't be larger than 2MB")
+        if value.image.width > 2048:
+            raise serializers.ValidationError(
+                "Image width can't be larger than 2048px"
+            )
+        if value.image.height > 2048:
+            raise serializers.ValidationError(
+                "Image height can't be larger than 2048px"
+            )
+        return value
+
     class Meta:
         model = Sound
         fields = [
