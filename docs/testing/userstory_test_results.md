@@ -1,6 +1,6 @@
 # Sonic Explorer API User Story Tests
 
-[Go back to README.md](../TESTING.md)
+[Go back to TESTING.md](../TESTING.md)
 
 All user stories for the API have been manually tested with the following results:
 
