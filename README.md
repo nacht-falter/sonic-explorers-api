@@ -59,8 +59,8 @@ The deployed API can be found here: [Sonic Explorers API](https://sonic-explorer
 
 The design process for the API involved the following steps:
 
-1. **Strategy**: Defining overall project goals (see https://github.com/nacht-falter/sonic-explorers)
-2. **Scope**: Defining API requirements by writing [user stories for the front end application](https://github.com/nacht-falter/sonic-explorers) and subsequently defining [user stories for the API itself](#user-stories), with a Minimum Viable Product (MVP) approach in mind.
+1. **Strategy**: Defining overall project goals (see https://github.com/nacht-falter/sonic-explorers#strategy-plane)
+2. **Scope**: Defining API requirements by writing [user stories for the front end application](https://github.com/nacht-falter/sonic-explorers#scope-plane) and subsequently defining [user stories for the API itself](#user-stories), with a Minimum Viable Product (MVP) approach in mind.
 3. **Structure**: Designing the [data models](#data-models) and outlining [API endpoints](#api-endpoints).
 
 The **Skeleton** and **Surface** design planes are part of the design process for the [front end application](https://github.com/nacht-falter/sonic-explorers).
